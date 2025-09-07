@@ -8,6 +8,7 @@ import { LeadGenerationSection } from "./sections/LeadGenerationSection/LeadGene
 import { ServicesSection } from "./sections/ServicesSection/ServicesSection";
 import { TestimonialsSection } from "./sections/TestimonialsSection/TestimonialsSection";
 import { WhyChooseUsSection } from "./sections/WhyChooseUsSection/WhyChooseUsSection";
+import { ProcessSection } from "./sections/ProcessSection/ProcessSection";
 
 // 👇 import these so the Contact Card works
 import { Button } from "../../components/ui/button";
@@ -82,6 +83,7 @@ export const LandingPage = () => {
           <HeroSection />
           <BrandingSection />
           <ServicesSection />
+          <ProcessSection />
           <LeadGenerationSection />
           <TestimonialsSection />
           <ContactFormSection />

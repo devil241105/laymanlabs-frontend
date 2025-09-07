@@ -40,9 +40,7 @@ export const BrandingSection = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row items-start gap-4 w-full max-w-md">
-            <a href="https://calendly.com/vihaanarora-50/30min"
-              target="_blank"
-              rel="noopener noreferrer">
+            <a href="#contact-us">
             <Button className="w-auto h-auto px-4 py-2 
                    bg-yellow text-black font-bold 
                    rounded-[30px] transition-colors 

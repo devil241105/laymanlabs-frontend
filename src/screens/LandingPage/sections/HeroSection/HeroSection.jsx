@@ -30,9 +30,7 @@ export const HeroSection = () => {
       ))}
     </nav>
 
-    <a href="https://calendly.com/vihaanarora-50/30min"
-      target="_blank"
-      rel="noopener noreferrer">
+    <a href="#contact-us">
     <Button
       variant="outline"
       className="h-auto px-3 sm:px-5 md:px-6 py-1.5 sm:py-2.5

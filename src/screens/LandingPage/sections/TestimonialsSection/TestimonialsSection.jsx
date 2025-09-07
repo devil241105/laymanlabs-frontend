@@ -25,38 +25,40 @@ export const TestimonialsSection = () => {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-    setResponseMessage("");
+  e.preventDefault();
+  setLoading(true);
+  setResponseMessage("");
 
-    try {
-      const res = await fetch(
-        "https://labourlabs-backend-production.up.railway.app/api/leads/create",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        }
-      );
-
-      if (res.ok) {
-        setResponseMessage("Message sent successfully!");
-        setFormData({ name: "", companyName: "", email: "", message: "" });
-      } else {
-        setResponseMessage("Failed to send message.");
+  try {
+    const res = await fetch(
+      "https://labourlabs-backend-production.up.railway.app/api/leads/create",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
       }
-    } catch (error) {
-      console.error("Error:", error);
-      setResponseMessage("Something went wrong.");
-    } finally {
-      setLoading(false);
+    );
+
+    if (res.ok) {
+      setResponseMessage("Message sent successfully!");
+      setFormData({ name: "", companyName: "", email: "", message: "" });
+
+      
+      window.location.href = "https://calendly.com/vihaanarora-50/30min";
+    } else {
+      setResponseMessage("Failed to send message.");
     }
-  };
+  } catch (error) {
+    console.error("Error:", error);
+    setResponseMessage("Something went wrong.");
+  } finally {
+    setLoading(false);
+  }
+};
+
 
   return (
-    <section className="flex flex-col items-start pt-0 pb-[30px] px-4 sm:px-6 lg:px-0 bg-black w-full">
+    <section id="contact-us" className="flex flex-col items-start pt-0 pb-[30px] px-4 sm:px-6 lg:px-0 bg-black w-full">
       <div className="flex w-full max-w-[1440px] items-start gap-6 lg:gap-10 pt-[60px] pb-[30px] px-4 sm:px-6 lg:px-[100px] bg-black mx-auto">
         <div className="flex flex-col items-start">
           <div className="flex flex-col items-start gap-2.5 px-[7px] py-0 rounded-[7px]">
@@ -144,9 +146,15 @@ export const TestimonialsSection = () => {
 
               {/* Message */}
               <div className="flex flex-col items-start gap-[5px] w-full">
-                <Label className="text-[#dfdfdf] font-medium text-sm sm:text-base md:text-lg">
-                  Message*
-                </Label>
+                <div className="flex items-center space-x-1">
+  <Label className="text-[#dfdfdf] font-medium text-xs sm:text-sm md:text-base">
+    Message
+  </Label>
+  <span className="text-[#dfdfdf] font-normal text-xs sm:text-sm md:text-base">
+    (optional)
+  </span>
+</div>
+
                 <Textarea
                   name="message"
                   value={formData.message}
@@ -156,7 +164,6 @@ export const TestimonialsSection = () => {
                              bg-[#dfdfdf] rounded-[14px] border 
                              text-sm sm:text-base md:text-lg text-[#0c0d14]"
                   placeholder="Message"
-                  required
                 />
               </div>
             </div>
